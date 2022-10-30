@@ -1,0 +1,12 @@
+service:
+  frontend:
+    build: ./app
+    ports: 3000:3333
+    container_name: frontend
+  api:
+    build: ./api
+    ports: 5000:5555
+    container_name: api
+  mysql:
+  nginx:
+  adminer:
