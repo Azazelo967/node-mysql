@@ -8,5 +8,8 @@ service:
     ports: 5000:5555
     container_name: api
   mysql:
-  nginx:
+    image: mysql
+#  nginx:
+#    image: nginx
   adminer:
+    image: adminer
