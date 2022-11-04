@@ -2,7 +2,7 @@ import mysql from 'mysql2'
 
 const pool = mysql.createPool({
   connectionLimit: 100,
-  host: process.env.DB,
+  host: 'mysql',
   port: '3306',
   user: 'root',
   password: 'password',
