@@ -22,6 +22,8 @@ services:
     restart: always
     env_file:
       - ./mysql/.env
+    volumes:
+      - mysql_data:/var/lib/mysql
     container_name: mysql
 #  nginx:
 #    image: nginx
@@ -31,3 +33,6 @@ services:
     ports:
       - 8888:8080
     container_name: adminer
+  
+volumes:
+  mysql_data:
