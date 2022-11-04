@@ -6,14 +6,18 @@ services:
     build: ./frontend
     ports: 
       - 3000:3000
-    depends_on:
-      - api
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
     container_name: frontend
   api:
     build: ./api
     restart: always
     ports: 
       - 5555:5000
+    volumes:
+      - /app/node_modules
+      - ./api:/app
     depends_on:
       - mysql
     container_name: api
@@ -25,8 +29,6 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     container_name: mysql
-#  nginx:
-#    image: nginx
   adminer:
     image: adminer:4.8.1
     restart: always
