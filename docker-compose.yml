@@ -9,6 +9,7 @@ services:
     volumes:
       - /app/node_modules
       - ./frontend:/app:Z
+    command: chown $UID:$GID -R /app/node_modules
     container_name: frontend
   api:
     build: ./api
@@ -20,6 +21,7 @@ services:
       - ./api:/app:Z
     depends_on:
       - mysql
+    command: chown $UID:$GID -R /app/node_modules
     container_name: api
   mysql:
     image: mysql
